@@ -21,6 +21,7 @@ import { Tooltip,Button } from "@mui/material";
 import { Link, Outlet } from "react-router-dom";
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import PersonIcon from '@mui/icons-material/Person';
+import PsychologyIcon from '@mui/icons-material/Psychology';
 import LaptopChromebookIcon from '@mui/icons-material/LaptopChromebook';
 import GroupsIcon from '@mui/icons-material/Groups';
 import {useDispatch} from 'react-redux'
@@ -271,6 +272,33 @@ export default function Main() {
                   </ListItemIcon>
                   <ListItemText
                     primary={"جدول المحفظة"}
+                    sx={{ opacity: open ? 1 : 0 }}
+                  />
+                </ListItemButton>
+              </Tooltip>
+            </ListItem>
+          </Link>
+          <Link style={{textDecoration: 'none', color: '#000'}} to={"psychologist"}>
+            <ListItem disablePadding sx={{ display: "block" }}>
+              <Tooltip title={open ? "" : "الأخصائي النفسي"} placement="left">
+                <ListItemButton
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <PsychologyIcon />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={"الأخصائي النفسي"}
                     sx={{ opacity: open ? 1 : 0 }}
                   />
                 </ListItemButton>
