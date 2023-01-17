@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import AddPsychology from '../components/AddPsychology';
 import { useSelector } from "react-redux";
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import TableChartIcon from '@mui/icons-material/TableChart';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import EditPsychology from '../components/EditPsychology';
@@ -14,6 +15,7 @@ const columns = [
     { id: "code", label: "العنوان", minWidth: 100, align: "center" },
     { id: "code", label: "السعر", minWidth: 100, align: "center" },
     { id: "code", label: "المدة", minWidth: 100, align: "center" },
+    { id: "code", label: "المعلم", minWidth: 100, align: "center" },
     {
         id: "density",
         label: "الإجراءات",
@@ -123,12 +125,16 @@ export default function Psychologist()
                         <TableCell align="center">{e.title}</TableCell>
                         <TableCell align="center">{e.price}</TableCell>
                         <TableCell align="center">{e.duration}</TableCell>
+                        <TableCell align="center">{e.Teacher.name}</TableCell>
                         <TableCell align="center">
                             <Tooltip title="مشاهدة" placement="top">
                                 <Button onClick={()=>navigate(`/psychologist/${e.id}`)}><VisibilityIcon/></Button>
                             </Tooltip>
                             <Tooltip title="تعديل" placement="top">
                                 <Button onClick={()=>setOpenEditPsychology(e.id)}><ModeEditIcon/></Button>
+                            </Tooltip>
+                            <Tooltip title="جدول قبول ورفض الجلسات">
+                                <Button onClick={()=>navigate(`/psychologist/${e.id}/sessions`)}><TableChartIcon/></Button>
                             </Tooltip>
                         </TableCell>
                         <TableCell align="center">

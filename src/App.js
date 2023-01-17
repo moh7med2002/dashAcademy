@@ -29,6 +29,7 @@ import GroupStudents from "./pages/GroupStudents";
 import CheckLessons from "./pages/CheckLessons";
 import Psychologist from "./pages/Psychologist";
 import SinglePsychology from "./pages/SinglePsychology";
+import SessionManagement from "./pages/SessionManagement";
 
 // Create rtl cache
 const cacheRtl = createCache({
@@ -121,6 +122,10 @@ function App() {
         {
           path:'psychologist/:id',
           element:currentUser?<SinglePsychology/>:<Navigate to="/login"/>
+        },
+        {
+          path:'psychologist/:id/sessions',
+          element:currentUser?<SessionManagement/>:<Navigate to="/login"/>
         },
         {
           path: '*',
