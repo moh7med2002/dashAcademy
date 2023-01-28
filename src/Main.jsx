@@ -277,6 +277,33 @@ export default function Main() {
               </Tooltip>
             </ListItem>
           </Link>
+          <Link style={{textDecoration: 'none', color: '#000'}} to={"Forum"}>
+            <ListItem disablePadding sx={{ display: "block" }}>
+              <Tooltip title={open ? "" : "النوادي"} placement="left">
+                <ListItemButton
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <LaptopChromebookIcon />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={"النوادي"}
+                    sx={{ opacity: open ? 1 : 0 }}
+                  />
+                </ListItemButton>
+              </Tooltip>
+            </ListItem>
+          </Link>
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>

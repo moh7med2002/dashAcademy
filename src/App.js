@@ -27,6 +27,7 @@ import Group from "./pages/Group";
 import GroupLessons from "./pages/GroupLessons";
 import GroupStudents from "./pages/GroupStudents";
 import CheckLessons from "./pages/CheckLessons";
+import Forums from "./pages/Forums";
 
 // Create rtl cache
 const cacheRtl = createCache({
@@ -111,6 +112,10 @@ function App() {
         {
           path:'groups/:id/students',
           element:currentUser?<GroupStudents/>:<Navigate to="/login"/>
+        },
+        {
+          path: 'Forum',
+          element: currentUser?<Forums/>:<Navigate to="/login"/>,
         },
         {
           path: '*',
