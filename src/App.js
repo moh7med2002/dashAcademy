@@ -27,6 +27,7 @@ import Group from "./pages/Group";
 import GroupLessons from "./pages/GroupLessons";
 import GroupStudents from "./pages/GroupStudents";
 import CheckLessons from "./pages/CheckLessons";
+import Forums from "./pages/Forums";
 import Psychologist from "./pages/Psychologist";
 import SinglePsychology from "./pages/SinglePsychology";
 import SessionManagement from "./pages/SessionManagement";
@@ -131,6 +132,10 @@ function App() {
         {
           path:'psychologist/:id/sessions',
           element:currentUser?<SessionManagement/>:<Navigate to="/login"/>
+        },
+        {
+          path: 'Forum',
+          element: currentUser?<Forums/>:<Navigate to="/login"/>,
         },
         {
           path: '*',

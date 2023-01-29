@@ -16,16 +16,16 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import WalletIcon from '@mui/icons-material/Wallet';
-import { Tooltip,Button } from "@mui/material";
+import WalletIcon from "@mui/icons-material/Wallet";
+import { Tooltip, Button } from "@mui/material";
 import { Link, Outlet } from "react-router-dom";
-import MenuBookIcon from '@mui/icons-material/MenuBook';
-import PersonIcon from '@mui/icons-material/Person';
-import PsychologyIcon from '@mui/icons-material/Psychology';
-import LaptopChromebookIcon from '@mui/icons-material/LaptopChromebook';
-import GroupsIcon from '@mui/icons-material/Groups';
-import {useDispatch} from 'react-redux'
-import {logout} from './redux/user'
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import PersonIcon from "@mui/icons-material/Person";
+import PsychologyIcon from "@mui/icons-material/Psychology";
+import LaptopChromebookIcon from "@mui/icons-material/LaptopChromebook";
+import GroupsIcon from "@mui/icons-material/Groups";
+import { useDispatch } from "react-redux";
+import { logout } from "./redux/user";
 
 const drawerWidth = 240;
 
@@ -106,7 +106,7 @@ export default function Main() {
     setOpen(false);
   };
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -125,10 +125,16 @@ export default function Main() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h4" noWrap component="div" sx={{flexGrow:1}}>
+          <Typography variant="h4" noWrap component="div" sx={{ flexGrow: 1 }}>
             اكادميتنا
           </Typography>
-          <Button color="secondary" variant="contained" onClick={()=>dispatch(logout())}>تسجيل الخروج</Button>
+          <Button
+            color="secondary"
+            variant="contained"
+            onClick={() => dispatch(logout())}
+          >
+            تسجيل الخروج
+          </Button>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
@@ -143,7 +149,10 @@ export default function Main() {
         </DrawerHeader>
         <Divider />
         <List>
-          <Link style={{textDecoration: 'none', color: '#000'}} to={"courses"}>
+          <Link
+            style={{ textDecoration: "none", color: "#000" }}
+            to={"courses"}
+          >
             <ListItem disablePadding sx={{ display: "block" }}>
               <Tooltip title={open ? "" : "الدورات"} placement="left">
                 <ListItemButton
@@ -170,7 +179,7 @@ export default function Main() {
               </Tooltip>
             </ListItem>
           </Link>
-          <Link style={{textDecoration: 'none', color: '#000'}} to={"groups"}>
+          <Link style={{ textDecoration: "none", color: "#000" }} to={"groups"}>
             <ListItem disablePadding sx={{ display: "block" }}>
               <Tooltip title={open ? "" : "المجموعات"} placement="left">
                 <ListItemButton
@@ -197,7 +206,10 @@ export default function Main() {
               </Tooltip>
             </ListItem>
           </Link>
-          <Link style={{textDecoration: 'none', color: '#000'}} to={"students"}>
+          <Link
+            style={{ textDecoration: "none", color: "#000" }}
+            to={"students"}
+          >
             <ListItem disablePadding sx={{ display: "block" }}>
               <Tooltip title={open ? "" : "الطلاب"} placement="left">
                 <ListItemButton
@@ -224,7 +236,10 @@ export default function Main() {
               </Tooltip>
             </ListItem>
           </Link>
-          <Link style={{textDecoration: 'none', color: '#000'}} to={"subjects"}>
+          <Link
+            style={{ textDecoration: "none", color: "#000" }}
+            to={"subjects"}
+          >
             <ListItem disablePadding sx={{ display: "block" }}>
               <Tooltip title={open ? "" : "المواد"} placement="left">
                 <ListItemButton
@@ -251,7 +266,10 @@ export default function Main() {
               </Tooltip>
             </ListItem>
           </Link>
-          <Link style={{textDecoration: 'none', color: '#000'}} to={"wallets"}>
+          <Link
+            style={{ textDecoration: "none", color: "#000" }}
+            to={"wallets"}
+          >
             <ListItem disablePadding sx={{ display: "block" }}>
               <Tooltip title={open ? "" : "جدول المحفظة"} placement="left">
                 <ListItemButton
@@ -278,7 +296,10 @@ export default function Main() {
               </Tooltip>
             </ListItem>
           </Link>
-          <Link style={{textDecoration: 'none', color: '#000'}} to={"psychologist"}>
+          <Link
+            style={{ textDecoration: "none", color: "#000" }}
+            to={"psychologist"}
+          >
             <ListItem disablePadding sx={{ display: "block" }}>
               <Tooltip title={open ? "" : "الأخصائي النفسي"} placement="left">
                 <ListItemButton
@@ -299,6 +320,33 @@ export default function Main() {
                   </ListItemIcon>
                   <ListItemText
                     primary={"الأخصائي النفسي"}
+                    sx={{ opacity: open ? 1 : 0 }}
+                  />
+                </ListItemButton>
+              </Tooltip>
+            </ListItem>
+          </Link>
+          <Link style={{ textDecoration: "none", color: "#000" }} to={"Forum"}>
+            <ListItem disablePadding sx={{ display: "block" }}>
+              <Tooltip title={open ? "" : "النوادي"} placement="left">
+                <ListItemButton
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <PsychologyIcon />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={"النوادي "}
                     sx={{ opacity: open ? 1 : 0 }}
                   />
                 </ListItemButton>
