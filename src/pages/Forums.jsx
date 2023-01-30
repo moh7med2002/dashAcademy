@@ -13,7 +13,6 @@ import {Link} from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import { useSelector } from "react-redux";
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import AddGroup from "../components/AddGroup";
 import AddForum from "../components/AddForum";
 
 const columns = [
@@ -59,7 +58,7 @@ function Forums() {
                     }
                 })
                 const data = await response.json()
-                console.log('data: aaaaaaaaaaaaaaaaaaa', data);
+                console.log('data: aaaaaaaaaaaaaaaaaaa', data.forums);
                 setForums(data.forums)
                 setLoading(false)
             }
@@ -125,7 +124,7 @@ function Forums() {
                         <TableCell align="center">{e.subject}</TableCell>
                         <TableCell align="center">{e.Teacher.name}</TableCell>
                         <TableCell align="center">
-                            <Link to={`/students/view/${e.id}`}>
+                            <Link to={`/forums/view/${e.id}`}>
                                 <Button>
                                     <VisibilityIcon/>
                                 </Button>

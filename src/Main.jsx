@@ -17,6 +17,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import WalletIcon from "@mui/icons-material/Wallet";
+import ForumIcon from '@mui/icons-material/Forum';
 import { Tooltip, Button } from "@mui/material";
 import { Link, Outlet } from "react-router-dom";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
@@ -326,7 +327,7 @@ export default function Main() {
               </Tooltip>
             </ListItem>
           </Link>
-          <Link style={{ textDecoration: "none", color: "#000" }} to={"Forum"}>
+          <Link style={{ textDecoration: "none", color: "#000" }} to={"forums"}>
             <ListItem disablePadding sx={{ display: "block" }}>
               <Tooltip title={open ? "" : "النوادي"} placement="left">
                 <ListItemButton
@@ -343,7 +344,7 @@ export default function Main() {
                       justifyContent: "center",
                     }}
                   >
-                    <PsychologyIcon />
+                    <ForumIcon/>
                   </ListItemIcon>
                   <ListItemText
                     primary={"النوادي "}

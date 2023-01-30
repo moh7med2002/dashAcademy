@@ -31,6 +31,7 @@ import Forums from "./pages/Forums";
 import Psychologist from "./pages/Psychologist";
 import SinglePsychology from "./pages/SinglePsychology";
 import SessionManagement from "./pages/SessionManagement";
+import Forum from "./pages/Forum";
 
 // Create rtl cache
 const cacheRtl = createCache({
@@ -129,8 +130,12 @@ function App() {
           element:currentUser?<SessionManagement/>:<Navigate to="/login"/>
         },
         {
-          path: 'Forum',
+          path: 'forums',
           element: currentUser?<Forums/>:<Navigate to="/login"/>,
+        },
+        {
+          path: 'forums/view/:forumId',
+          element: currentUser?<Forum/>:<Navigate to="/login"/>,
         },
         {
           path: '*',
