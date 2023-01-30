@@ -32,6 +32,7 @@ import Psychologist from "./pages/Psychologist";
 import SinglePsychology from "./pages/SinglePsychology";
 import SessionManagement from "./pages/SessionManagement";
 import Forum from "./pages/Forum";
+import FinishWallet from "./pages/FinishWallet";
 
 // Create rtl cache
 const cacheRtl = createCache({
@@ -88,6 +89,10 @@ function App() {
         {
           path: 'wallets',
           element: currentUser?<Wallets/>:<Navigate to="/login"/>,
+        },
+        {
+          path: 'finish_wallets',
+          element: currentUser?<FinishWallet/>:<Navigate to="/login"/>,
         },
         {
           path: 'students/view/:studentId',

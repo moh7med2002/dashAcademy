@@ -16,7 +16,7 @@ import { useSelector } from "react-redux";
 const columns = [
     { id: "name", label: "اسم الطالب", minWidth: 170, align: "center" },
     { id: "code", label: "المبلغ المدخل", minWidth: 100, align: "center" },
-    { id: "details", label: "التفاصيل", minWidth: 100, align: "center" }
+    { id: "details", label: "الحالة", minWidth: 100, align: "center" }
     ];
 
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -24,7 +24,7 @@ const columns = [
     color: theme.palette.primary.contrastText,
     }));
 
-    const Courses = () => {
+    const FinishWallet = () => {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
     const [loading, setLoading] = useState(true);
@@ -42,7 +42,6 @@ const columns = [
         setPage(0);
     };
 
-    const navig = useNavigate()
 
     useEffect(()=>
     {
@@ -56,7 +55,7 @@ const columns = [
                     }
                 })
                 const data = await response.json()
-                setWallets(data.wallets.filter(wallet=>wallet.status===0))
+                setWallets(data.wallets.filter(wallet=>wallet.status!==0))
                 setLoading(false)
             }
             catch(err)
@@ -73,16 +72,14 @@ const columns = [
             variant="h3"
             sx={{ marginBottom: "20px",marginTop:"15px",fontSize:"38px"}}
         >
-            جدول محفظة الطلاب
+            جدول المعاملات المنتهية 
         </Typography>
-        <Box sx={{ display: "flex", justifyContent: "space-between",marginBottom:"20px" }}>
-            <Button onClick={()=>navigate('/finish_wallets')} variant="contained">
-                جدول المعاملات المنتهية
-            </Button>
+        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
             <Button
+            sx={{ marginBottom: "20px" }}
             variant="contained"
             onClick={() => navigate(-1)}
-            color="success">
+            >
             رجوع
             </Button>
         </Box>
@@ -121,8 +118,8 @@ const columns = [
                     <TableRow key={i+'qw'} hover role="checkbox" tabIndex={-1}>
                         <TableCell align="center">{e.Student.name}</TableCell>
                         <TableCell align="center">{e.money}</TableCell>
-                        <TableCell align="center">
-                            <Button onClick={()=>navig(`/wallets/${e.id}`)}>مشاهدة</Button>
+                        <TableCell align="center" sx={{color:e.status===1?'red':'green'}}>
+                            {e.status===1?'مرفوض':'مقبول'}
                         </TableCell>
                     </TableRow>
                     ))}
@@ -143,4 +140,4 @@ const columns = [
     );
 };
 
-export default Courses;
+export default FinishWallet;
