@@ -33,6 +33,7 @@ import SinglePsychology from "./pages/SinglePsychology";
 import SessionManagement from "./pages/SessionManagement";
 import Forum from "./pages/Forum";
 import FinishWallet from "./pages/FinishWallet";
+import ParentRequests from "./pages/ParentRequests";
 
 // Create rtl cache
 const cacheRtl = createCache({
@@ -141,6 +142,10 @@ function App() {
         {
           path: 'forums/view/:forumId',
           element: currentUser?<Forum/>:<Navigate to="/login"/>,
+        },
+        {
+          path: 'parent_requests',
+          element: currentUser?<ParentRequests/>:<Navigate to="/login"/>,
         },
         {
           path: '*',
