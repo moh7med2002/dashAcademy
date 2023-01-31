@@ -34,6 +34,7 @@ import SessionManagement from "./pages/SessionManagement";
 import Forum from "./pages/Forum";
 import FinishWallet from "./pages/FinishWallet";
 import ParentRequests from "./pages/ParentRequests";
+import FinishRequestsParent from "./pages/FinishRequestsParent";
 
 // Create rtl cache
 const cacheRtl = createCache({
@@ -146,6 +147,10 @@ function App() {
         {
           path: 'parent_requests',
           element: currentUser?<ParentRequests/>:<Navigate to="/login"/>,
+        },
+        {
+          path: 'parent_requests_history',
+          element: currentUser?<FinishRequestsParent/>:<Navigate to="/login"/>,
         },
         {
           path: '*',
