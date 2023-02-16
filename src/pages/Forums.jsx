@@ -34,18 +34,18 @@ function Forums() {
     const [loading, setLoading] = useState(true);
     const [forums,setForums] = useState([])
     const [openAddForum,setOpenAddForum] = useState(false)
-
+    
     const {token} = useSelector((state)=>state.admin)
-
+    
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
-
+    
     const handleChangeRowsPerPage = (event) => {
         setRowsPerPage(+event.target.value);
         setPage(0);
     };
-
+    
     useEffect(()=>
     {
         async function getStudents()

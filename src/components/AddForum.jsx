@@ -43,7 +43,8 @@ export default function AddForum({setOpenAdd}) {
                 formData.append("title", data.title);
                 formData.append("image", file);
                 formData.append("TeacherId", data.TeacherId);
-                formData.append("subjectId", data.SubjectId);
+                formData.append("SubjectId", data.SubjectId);
+                console.log('data.SubjectId: ', data.SubjectId);
 
                 fetch(`${process.env.REACT_APP_API}/api/forum/create`, {
                 method: "POST",
@@ -81,7 +82,7 @@ export default function AddForum({setOpenAdd}) {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     label={"اسم المادة"}
-                    {...register("subjectId")}
+                    {...register("SubjectId")}
                 >
                     {subjects?.map((e, i) => (
                     <MenuItem key={e.id} value={e.id}>
