@@ -27,6 +27,7 @@ import LaptopChromebookIcon from "@mui/icons-material/LaptopChromebook";
 import GroupsIcon from "@mui/icons-material/Groups";
 import { useDispatch } from "react-redux";
 import { logout } from "./redux/user";
+import PendingIcon from '@mui/icons-material/Pending';
 
 const drawerWidth = 240;
 
@@ -348,6 +349,36 @@ export default function Main() {
                   </ListItemIcon>
                   <ListItemText
                     primary={"النوادي "}
+                    sx={{ opacity: open ? 1 : 0 }}
+                  />
+                </ListItemButton>
+              </Tooltip>
+            </ListItem>
+          </Link>
+          <Link
+            style={{ textDecoration: "none", color: "#000" }}
+            to={"parent_requests"}
+          >
+            <ListItem disablePadding sx={{ display: "block" }}>
+              <Tooltip title={open ? "" : "جدول طلبات الأب"} placement="left">
+                <ListItemButton
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <PendingIcon />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={"جدول طلبات الأب"}
                     sx={{ opacity: open ? 1 : 0 }}
                   />
                 </ListItemButton>
