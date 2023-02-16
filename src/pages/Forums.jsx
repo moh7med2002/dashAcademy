@@ -18,6 +18,21 @@ import AddForum from "../components/AddForum";
 const columns = [
     { id: "name", label: "اسم النادي", minWidth: 120, align: "center" },
     { id: "code", label: "المادة ", minWidth: 100, align: "center" },
+    {
+        id: "size",
+        label: "المرحلة الدراسية",
+        minWidth: 170,
+        align: "center",
+        format: (value) => value.toLocaleString("en-US"),
+    },
+    {
+        id: "asd",
+        label: "السنة الدراسية",
+        minWidth: 170,
+        align: "center",
+        format: (value) => value.toFixed(2),
+    },
+    { id: "section", label: "الشعبة الدراسية", minWidth: 150, align: "center" },
     { id: "level", label: "اسم المعلم", minWidth: 150, align: "center" },
     { id: "profile", label: "صفحة النادي", minWidth: 150, align: "center" }
 
@@ -121,7 +136,10 @@ function Forums() {
                     .map((e, i) => (
                     <TableRow key={i+'qw'} hover role="checkbox" tabIndex={-1}>
                         <TableCell align="center">{e.title}</TableCell>
-                        <TableCell align="center">{e.subject}</TableCell>
+                        <TableCell align="center">{e.Subject.title}</TableCell>
+                        <TableCell align="center">{e.Level.title}</TableCell>
+                        <TableCell align="center">{e.Class.title}</TableCell>
+                        <TableCell align="center">{e.Section?.title}</TableCell>
                         <TableCell align="center">{e.Teacher.name}</TableCell>
                         <TableCell align="center">
                             <Link to={`/forums/view/${e.id}`}>

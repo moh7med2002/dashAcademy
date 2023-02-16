@@ -56,6 +56,7 @@ export default function AddForum({setOpenAdd}) {
                 .then((res) => res.json())
                 .then((info) => {
                     window.location.reload();
+                    console.log(info);
                     setOpenAdd(false);
                     setLoad(false)
                 })

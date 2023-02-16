@@ -67,7 +67,7 @@ const navigate = useNavigate();
           <Box sx={{marginBottom:"30px"}}>
               <Avatar src={`${process.env.REACT_APP_API}/${forum?.image}`} alt={forum?.title} sx={{marginBottom:"10px",width:"120px",height:"120px",fontSize:"38px"}}/>
               <Typography sx={{fontSize:"18px",fontWeight:"600",marginBottom:"12px"}}>اسم النادي: <Span>{forum?.title}</Span></Typography>
-              <Typography sx={{fontSize:"18px",fontWeight:"600",marginBottom:"12px"}}>المادة : <Span>{forum?.Subject}</Span></Typography>
+              <Typography sx={{fontSize:"18px",fontWeight:"600",marginBottom:"12px"}}>المادة : <Span>{forum?.Subject?.title}</Span></Typography>
               <Typography sx={{fontSize:"18px",fontWeight:"600",marginBottom:"12px"}}>اسم المعلم: <Span>{forum?.Teacher?.name}</Span></Typography>
               <Typography sx={{fontSize:"18px",fontWeight:"600",marginBottom:"12px"}}>عدد الطلاب : <Span>{forum?.Students?.length}</Span></Typography>
               <Box sx={{marginTop:"20px",display:"flex",columnGap:"14px"}}>

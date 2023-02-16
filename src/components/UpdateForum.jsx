@@ -4,29 +4,18 @@ import React from "react";
 // import DialogActions from "@mui/material/DialogActions";
 // import DialogContent from "@mui/material/DialogContent";
 // import DialogTitle from "@mui/material/DialogTitle";
-import {DialogTitle,DialogContent,TextField,FormControl,Select,InputLabel,MenuItem,DialogActions,Button,Box} from '@mui/material'
+import {DialogTitle,DialogContent,TextField,FormControl,DialogActions,Button,Box} from '@mui/material'
 // import { Box } from "@mui/material";
-import { useState , useEffect} from "react";
+import { useState } from "react";
 import { useSelector } from 'react-redux';
 import { useSnackbar } from 'notistack'
 
 function UpdateForum(props) {
     // const { register, handleSubmit } = useForm();
 
-  const [name,setName] = useState(props.forum.name)
-  const [subject,setSubject] = useState(props.forum.Subject)
+  const [name,setName] = useState(props.forum.title)
   const {token} = useSelector((state)=>state.admin)
   const {enqueueSnackbar, closeSnackbar} = useSnackbar()
-    
-  useEffect(()=>{
-    fetch(`${process.env.REACT_APP_API}/api/subject/all`,{
-        headers:{
-        "Authorization":token
-    }
-    })
-    .then((res) => res.json())
-    .then((data) => setSubject(data.subjects));
-  }, [])
 
   async function handleSubmit(e)
   {
@@ -43,8 +32,7 @@ function UpdateForum(props) {
               },
               body:JSON.stringify({
                   id:props.forum.id,
-                  name:name,
-                  subject:subject
+                  title:name,
               })
           })
           const data = await response.json();
@@ -81,19 +69,6 @@ function UpdateForum(props) {
                   required
                   />
                 <FormControl fullWidth sx={{ marginTop: "20px" }}>
-                <InputLabel id="demo-simple-select-label">اسم المادة</InputLabel>
-                <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    label={"اسم المادة"}
-                    // {...register("SubjectId")}
-                >
-                    {subject?.map((e, i) => (
-                    <MenuItem key={e.id} value={e.id}>
-                        {e.title}({e.Level.title})({e.Class.title})({e.Section?.title||''})
-                    </MenuItem>
-                    ))}
-                </Select>
                 </FormControl>
               </DialogContent>
               <DialogActions>
