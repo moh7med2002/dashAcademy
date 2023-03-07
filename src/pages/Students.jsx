@@ -121,9 +121,9 @@ const columns = [
                     <TableRow key={i+'qw'} hover role="checkbox" tabIndex={-1}>
                         <TableCell align="center">{e.name}</TableCell>
                         <TableCell align="center">{e.money}</TableCell>
-                        {/* <TableCell align="center">{e.Level.title}</TableCell>
+                        <TableCell align="center">{e.Level.title}</TableCell>
                         <TableCell align="center">{e.Class.title}</TableCell>
-                        <TableCell align="center">{e.Section?.title||''}</TableCell> */}
+                        <TableCell align="center">{e.Section?.title||''}</TableCell>
                         <TableCell align="center">
                             <Link to={`/students/view/${e.id}`}>
                                 <Button>
